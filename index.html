@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIETBA - Sistem Informasi Event Terbuka Banda Aceh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calendar-alt"></i>
+                <span>SIETBA</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#beranda" class="nav-link">Beranda</a></li>
+                <li><a href="#event" class="nav-link">Event</a></li>
+                <li><a href="#tentang" class="nav-link">Tentang</a></li>
+                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Sistem Informasi Event Terbuka Banda Aceh</h1>
+                <p>Platform informasi lengkap untuk event-event terbuka di Banda Aceh. Temukan, ikuti, dan bagikan event menarik di kota Serambi Mekkah.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('event')">
+                        <i class="fas fa-calendar"></i>
+                        Lihat Event
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('tentang')">
+                        <i class="fas fa-info-circle"></i>
+                        Pelajari Lebih Lanjut
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Event Terkini</h3>
+                    <p>Festival Budaya Aceh 2024</p>
+                    <span class="date">15-20 Desember 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Section -->
+    <section id="event" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Terbuka Banda Aceh</h2>
+                <p>Temukan event menarik yang sedang berlangsung dan akan datang</p>
+            </div>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="semua">Semua</button>
+                <button class="filter-btn" data-filter="budaya">Budaya</button>
+                <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
+                <button class="filter-btn" data-filter="olahraga">Olahraga</button>
+                <button class="filter-btn" data-filter="ekonomi">Ekonomi</button>
+            </div>
+
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be loaded here -->
+            </div>
+
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Muat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Tentang SIETBA</h2>
+                    <p>SIETBA (Sistem Informasi Event Terbuka Banda Aceh) adalah platform digital yang menyediakan informasi lengkap tentang berbagai event terbuka yang diselenggarakan di Banda Aceh.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-search"></i>
+                            <h4>Pencarian Mudah</h4>
+                            <p>Temukan event sesuai kategori dan waktu yang Anda inginkan</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bell"></i>
+                            <h4>Notifikasi Real-time</h4>
+                            <p>Dapatkan pemberitahuan event baru dan update terbaru</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-share-alt"></i>
+                            <h4>Berbagi Event</h4>
+                            <p>Bagikan event menarik ke teman dan keluarga</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="stats-card">
+                        <div class="stat">
+                            <h3>150+</h3>
+                            <p>Event Terdaftar</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Organizer Aktif</p>
+                        </div>
+                        <div class="stat">
+                            <h3>10K+</h3>
+                            <p>Pengguna Terdaftar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Ada pertanyaan atau saran? Jangan ragu untuk menghubungi kami</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Teuku Umar No. 123, Banda Aceh, Aceh 23111</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 651 123456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@sietba.aceh.go.id</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subjek" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Pesan" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>SIETBA</span>
+                    </div>
+                    <p>Sistem Informasi Event Terbuka Banda Aceh - Platform informasi event terlengkap di Banda Aceh.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Link Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#event">Event</a></li>
+                        <li><a href="#tentang">Tentang</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kategori Event</h4>
+                    <ul>
+                        <li><a href="#event" data-filter="budaya">Budaya</a></li>
+                        <li><a href="#event" data-filter="pendidikan">Pendidikan</a></li>
+                        <li><a href="#event" data-filter="olahraga">Olahraga</a></li>
+                        <li><a href="#event" data-filter="ekonomi">Ekonomi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan update event terbaru langsung ke email Anda</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Masukkan email Anda">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SIETBA - Sistem Informasi Event Terbuka Banda Aceh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
