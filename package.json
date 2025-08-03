@@ -1,0 +1,35 @@
+{
+  "name": "sieba-project",
+  "version": "1.0.0",
+  "description": "A modern, responsive website built with Bootstrap 5",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "bootstrap",
+    "responsive",
+    "website",
+    "modern",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Sieba Project Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/sieba-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/sieba-project/issues"
+  },
+  "homepage": "https://github.com/your-username/sieba-project#readme",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
