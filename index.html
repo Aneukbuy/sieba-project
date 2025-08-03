@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistem Informasi Event Terbuka Banda Aceh - Platform untuk mengelola dan mencari informasi event di Banda Aceh">
+    <meta name="keywords" content="event, banda aceh, aceh, indonesia, sistem informasi, open event">
+    <meta name="author" content="SIEBA Team">
+    <title>SIEBA - Sistem Informasi Event Terbuka Banda Aceh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=SIEBA" alt="SIEBA Logo">
+                    <span>SIEBA</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#events" class="nav-link">Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#categories" class="nav-link">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Kontak</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Temukan Event Menarik di Banda Aceh</h1>
+                <p class="hero-subtitle">Platform terpercaya untuk mencari dan mengelola informasi event terbuka di Banda Aceh. Jangan lewatkan kesempatan untuk menghadiri acara-acara menarik di kota Anda!</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('events')">
+                        <i class="fas fa-search"></i> Jelajahi Event
+                    </button>
+                    <button class="btn btn-secondary" onclick="openEventModal()">
+                        <i class="fas fa-plus"></i> Tambah Event
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400/3b82f6/ffffff?text=Event+Banda+Aceh" alt="Event Banda Aceh">
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Cari event berdasarkan nama, lokasi, atau deskripsi...">
+                    <button class="search-btn" onclick="searchEvents()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <select id="categoryFilter" onchange="filterEvents()">
+                        <option value="">Semua Kategori</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="konser">Konser</option>
+                        <option value="olahraga">Olahraga</option>
+                        <option value="budaya">Budaya</option>
+                        <option value="teknologi">Teknologi</option>
+                    </select>
+                    <select id="dateFilter" onchange="filterEvents()">
+                        <option value="">Semua Waktu</option>
+                        <option value="today">Hari Ini</option>
+                        <option value="week">Minggu Ini</option>
+                        <option value="month">Bulan Ini</option>
+                    </select>
+                    <select id="statusFilter" onchange="filterEvents()">
+                        <option value="">Semua Status</option>
+                        <option value="upcoming">Akan Datang</option>
+                        <option value="ongoing">Sedang Berlangsung</option>
+                        <option value="completed">Selesai</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Event Terbaru</h2>
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+            <div class="load-more">
+                <button class="btn btn-outline" onclick="loadMoreEvents()">
+                    <i class="fas fa-plus"></i> Muat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Kategori Event</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('seminar')">
+                    <div class="category-icon">
+                        <i class="fas fa-presentation-screen"></i>
+                    </div>
+                    <h3>Seminar</h3>
+                    <p>Acara edukasi dan diskusi</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('workshop')">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Workshop</h3>
+                    <p>Pelatihan praktis dan skill</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('konser')">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Konser</h3>
+                    <p>Pertunjukan musik dan hiburan</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('olahraga')">
+                    <div class="category-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Olahraga</h3>
+                    <p>Kompetisi dan aktivitas fisik</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('budaya')">
+                    <div class="category-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3>Budaya</h3>
+                    <p>Seni dan tradisi lokal</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('teknologi')">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Teknologi</h3>
+                    <p>IT dan digital innovation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Tentang SIEBA</h2>
+                    <p>Sistem Informasi Event Terbuka Banda Aceh (SIEBA) adalah platform digital yang dirancang khusus untuk mempermudah masyarakat Banda Aceh dalam mencari, mengelola, dan berpartisipasi dalam berbagai event yang diselenggarakan di kota ini.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Informasi event terlengkap dan terkini</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Interface yang mudah digunakan</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Filter dan pencarian yang canggih</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gratis untuk semua pengguna</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x400/3b82f6/ffffff?text=Banda+Aceh" alt="Banda Aceh">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Syiah Kuala No. 5, Banda Aceh, Aceh 23111</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 651 7551234</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@sieba-bandaaceh.id</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitContactForm(event)">
+                    <input type="text" name="name" placeholder="Nama Lengkap" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="subject" placeholder="Subjek" required>
+                    <textarea name="message" placeholder="Pesan" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://via.placeholder.com/40x40/ffffff/2563eb?text=SIEBA" alt="SIEBA">
+                        <span>SIEBA</span>
+                    </div>
+                    <p>Platform terpercaya untuk informasi event di Banda Aceh</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#events">Event</a></li>
+                        <li><a href="#categories">Kategori</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterByCategory('seminar')">Seminar</a></li>
+                        <li><a href="#" onclick="filterByCategory('workshop')">Workshop</a></li>
+                        <li><a href="#" onclick="filterByCategory('konser')">Konser</a></li>
+                        <li><a href="#" onclick="filterByCategory('budaya')">Budaya</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SIEBA - Sistem Informasi Event Terbuka Banda Aceh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Event Baru</h3>
+                <span class="close" onclick="closeEventModal()">&times;</span>
+            </div>
+            <form id="eventForm" onsubmit="submitEvent(event)">
+                <div class="form-group">
+                    <label for="eventName">Nama Event *</label>
+                    <input type="text" id="eventName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventCategory">Kategori *</label>
+                    <select id="eventCategory" name="category" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="konser">Konser</option>
+                        <option value="olahraga">Olahraga</option>
+                        <option value="budaya">Budaya</option>
+                        <option value="teknologi">Teknologi</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventDate">Tanggal *</label>
+                        <input type="date" id="eventDate" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Waktu *</label>
+                        <input type="time" id="eventTime" name="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eventLocation">Lokasi *</label>
+                    <input type="text" id="eventLocation" name="location" placeholder="Contoh: Gedung Serbaguna Banda Aceh" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Deskripsi *</label>
+                    <textarea id="eventDescription" name="description" rows="4" placeholder="Deskripsikan event Anda..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventPrice">Harga Tiket</label>
+                    <input type="number" id="eventPrice" name="price" min="0" placeholder="0 = Gratis">
+                </div>
+                <div class="form-group">
+                    <label for="eventContact">Kontak</label>
+                    <input type="text" id="eventContact" name="contact" placeholder="Nomor WhatsApp atau Email">
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeEventModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Detail Modal -->
+    <div id="eventDetailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="detailModalTitle">Detail Event</h3>
+                <span class="close" onclick="closeEventDetailModal()">&times;</span>
+            </div>
+            <div id="eventDetailContent">
+                <!-- Event details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
