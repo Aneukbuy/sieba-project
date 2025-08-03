@@ -1,0 +1,43 @@
+{
+  "name": "sieba-project",
+  "version": "1.0.0",
+  "description": "Modern web application built with Bootstrap 5, HTML5, CSS3, and vanilla JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server .",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified yet'",
+    "deploy": "echo 'Configure deployment script for your hosting provider'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/sieba-project.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "responsive",
+    "modern",
+    "website",
+    "html5",
+    "css3",
+    "javascript",
+    "frontend",
+    "web-development"
+  ],
+  "author": "Sieba Project Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/sieba-project/issues"
+  },
+  "homepage": "https://github.com/username/sieba-project#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
